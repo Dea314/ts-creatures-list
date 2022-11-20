@@ -1,20 +1,20 @@
 import { IState as Props } from "../App";
 
 interface IProps {
-  people: Props["people"];
+  creature: Props["creature"];
 }
 
-const List: React.FC<IProps> = ({ people }) => {
+const List: React.FC<IProps> = ({ creature }) => {
   const renderList = (): JSX.Element[] => {
-    return people.map((person) => {
+    return creature.map((creature) => {
       return (
         <li className="List">
           <div className="List-header">
-            <img className="List-img" src={person.url} alt={person.name} />
-            <h2>{person.name}</h2>
+            <img className="List-img" src={creature.url} alt={creature.name} />
+            <h2>{creature.name}</h2>
           </div>
-          <p>{person.age} years old</p>
-          <p className="List-note">{person.note}</p>
+          <p>{creature.age} years old</p>
+          <p className="List-note">{creature.note}</p>
         </li>
       );
     });

@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { IState as Props } from "../App";
 
 interface IProps {
-  people: Props["people"];
-  setPeople: React.Dispatch<React.SetStateAction<Props["people"]>>;
+  creature: Props["creature"];
+  setCreature: React.Dispatch<React.SetStateAction<Props["creature"]>>;
 }
 
-const AddToList: React.FC<IProps> = ({ setPeople, people }) => {
+const AddToList: React.FC<IProps> = ({ setCreature, creature }) => {
   const [input, setInput] = useState({
     name: "",
     age: "",
+    elements: "",
     url: "",
+    series: "",
     note: "",
   });
 
@@ -23,19 +25,23 @@ const AddToList: React.FC<IProps> = ({ setPeople, people }) => {
   const handleClick = (): void => {
     if (!input.name || !input.age || !input.url) return;
 
-    setPeople([
-      ...people,
+    setCreature([
+      ...creature,
       {
         name: input.name,
         age: parseInt(input.age),
+        elements: input.elements,
         url: input.url,
+        series: input.series,
         note: input.note,
       },
     ]);
     setInput({
       name: "",
       age: "",
+      elements: "",
       url: "",
+      series: "",
       note: "",
     });
   };
@@ -60,11 +66,27 @@ const AddToList: React.FC<IProps> = ({ setPeople, people }) => {
       />
       <input
         type="text"
+        placeholder="Elements"
+        className="AddToList-input"
+        value={input.elements}
+        onChange={handleChange}
+        name="elements"
+      />
+      <input
+        type="text"
         placeholder="Image"
         className="AddToList-input"
         value={input.url}
         onChange={handleChange}
         name="url"
+      />
+      <input
+        type="text"
+        placeholder="Series"
+        className="AddToList-input"
+        value={input.series}
+        onChange={handleChange}
+        name="series"
       />
       <textarea
         placeholder="Note"

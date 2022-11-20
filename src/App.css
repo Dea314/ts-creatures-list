@@ -40,7 +40,7 @@
   list-style: none;
   display: flex;
   align-items: center;
-  width: 50rem;
+  width: 55rem;
   margin: 0rem auto;
   border: 0.1rem solid rgba(0, 0, 0, 0.233);
   padding: 1rem;
@@ -57,8 +57,8 @@
 }
 
 .List-img {
-  width: 4rem;
-  height: 4rem;
+  width: 7.5rem;
+  height: 7.5rem;
   border-radius: 100%;
   margin-right: 0.5rem;
 }
